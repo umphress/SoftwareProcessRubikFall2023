@@ -5,21 +5,27 @@ class DispatchTest(TestCase):
         
 # Happy path
 #    Test that each dispatched operation returns a status element
-    def test100_020ShouldVerifyInstallOfCheck(self):
+    def test100_010ShouldVerifyInstallOfCreate(self):
         parms = {}
-        parms['op'] = 'check'
+        parms['op'] = 'create'
         result = dispatch._dispatch(parms)
         self.assertIn('status', result)
         
-    def test100_030ShouldVerifyInstallOfSolve(self):
+    def test100_020ShouldVerifyInstallOfSolve(self):
         parms = {}
         parms['op'] = 'solve'
         result = dispatch._dispatch(parms)
         self.assertIn('status', result)
         
-    def test100_040ShouldVerifyInstallOfInfo(self):
+    def test100_030ShouldVerifyInstallOfRotate(self):
         parms = {}
         parms['op'] = 'info'
+        result = dispatch._dispatch(parms)
+        self.assertIn('status', result)
+        
+    def test100_040ShouldVerifyInstallOfVerify(self):
+        parms = {}
+        parms['op'] = 'verify'
         result = dispatch._dispatch(parms)
         self.assertIn('status', result)
                
